@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import angular from "../assets/techs/angular.png"
 import aws from "../assets/techs/aws.png"
@@ -151,19 +151,27 @@ const dataWorks = [
   },
 ]
 export const Works = () => {
+  useEffect(() => {
+    document.title = "Portafolio | Experience"
+  }, [])
+
   return (
     <div className="w3-black">
       <div className="titleContent">
-      <h1>Experience</h1>
+        <h1>Experience</h1>
       </div>
       {dataWorks.map(({ name, items, time, techs }) => (
         <div key={name} className="w3-panel ">
           <h4>{name}</h4>
           <span>{time}</span> <br />
           {techs.map(({ img, name }) => (
-            <img src={img} width="32px" 
-            style={{margin:8}}
-            alt={name} title={name} />
+            <img
+              src={img}
+              width="32px"
+              style={{ margin: 8 }}
+              alt={name}
+              title={name}
+            />
           ))}
           <ul>
             {items.map((item) => (
